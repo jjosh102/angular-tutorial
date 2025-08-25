@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 //import { RouterOutlet } from '@angular/router';
 import { Header } from './header/header';
-import { User } from './user/user';
+import { User, UserModel } from './user/user';
 import { Tasks } from './tasks/tasks';
 
 
@@ -15,9 +15,9 @@ import { DUMMY_USERS } from './dummy-users';
 export class App {
   protected readonly title = signal('essentials');
   users = DUMMY_USERS;
-  selectedUser = signal('');
+  selectedUser? = signal<UserModel | undefined>(undefined);
 
-  onUserSelected(userId: string): void {
-    this.selectedUser.set(DUMMY_USERS.find(user => user.id === userId)?.name || 'No name selected');
+  onUserSelected(user: UserModel): void {
+    this.selectedUser?.set(user);
   }
 }

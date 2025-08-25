@@ -3,12 +3,32 @@ import { Component, computed, input, Input, output } from '@angular/core';
 // import { DUMMY_USERS } from '../dummy-users';
 // const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 
+export interface UserModel {
+  id: string;
+  avatar: string;
+  name: string;
+}
+
 @Component({
   selector: 'app-user',
   imports: [],
   templateUrl: './user.html',
   styleUrl: './user.css'
 })
+
+
+
+export class User {
+  user = input.required<UserModel>();
+
+  select = output<UserModel>();
+  imagePath = computed(() => `../assets/users/${this.user().avatar}`);
+
+  onSelectUser(): void {
+    this.select.emit(this.user());
+  }
+}
+
 
 
 // export class User {
@@ -35,16 +55,3 @@ import { Component, computed, input, Input, output } from '@angular/core';
 
 //   }
 // }
-
-export class User {
-  id = input.required<string>();
-  avatar = input.required<string>();
-  name = input.required<string>();
-
-  select = output<string>();
-  imagePath = computed(() => `../assets/users/${this.avatar()}`);
-
-  onSelectUser(): void {
-    this.select.emit(this.id());
-  }
-}
