@@ -1,11 +1,10 @@
 import { Component, signal } from '@angular/core';
-//import { RouterOutlet } from '@angular/router';
 import { Header } from './header/header';
-import { User, UserModel } from './user/user';
+import { User } from './user/user';
 import { Tasks } from './tasks/tasks';
-
-
 import { DUMMY_USERS } from './dummy-users';
+import { UserModel } from './user/user.model';
+
 @Component({
   selector: 'app-root',
   imports: [Header, User, Tasks],

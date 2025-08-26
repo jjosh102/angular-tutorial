@@ -1,13 +1,10 @@
-import { Component, computed, input, Input, output } from '@angular/core';
+import { Component, computed, input, output } from '@angular/core';
+import { UserModel } from './user.model';
 
 // import { DUMMY_USERS } from '../dummy-users';
 // const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 
-export interface UserModel {
-  id: string;
-  avatar: string;
-  name: string;
-}
+
 
 @Component({
   selector: 'app-user',
@@ -20,7 +17,7 @@ export interface UserModel {
 
 export class User {
   user = input.required<UserModel>();
-
+  isSelected = input.required<boolean>();
   select = output<UserModel>();
   imagePath = computed(() => `../assets/users/${this.user().avatar}`);
 
