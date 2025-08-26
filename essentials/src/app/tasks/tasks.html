@@ -1,22 +1,23 @@
 @if(isAddingTask()) {
-<app-new-task (add) ="onNewTask($event)" (close) ="onDialogClose($event)"/>
+<app-new-task (add)="onNewTask($event)" (close)="onDialogClose($event)" />
 }
 
-<section id="tasks">
-  <header>
-    <h2>{{ user()?.name }}'s Tasks</h2>
-    <menu>
-      <button (click)="onStartAddTask()">Add Task</button>
-    </menu>
-  </header>
+<app-card>
+  <section id="tasks">
+    <header>
+      <h2>{{ user()?.name }}'s Tasks</h2>
+      <menu>
+        <button (click)="onStartAddTask()">Add Task</button>
+      </menu>
+    </header>
 
 
-  <ul>
-    @for(task of selectedUserTasks; track task.id) {
-    <li>
-      <app-task [task]="task" (complete)="onTaskCompleted($event)" />
-    </li>
-    }
-  </ul>
-</section>
-
+    <ul>
+      @for(task of selectedUserTasks; track task.id) {
+      <li>
+        <app-task [task]="task"  />
+      </li>
+      }
+    </ul>
+  </section>
+</app-card>

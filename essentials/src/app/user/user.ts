@@ -1,5 +1,6 @@
 import { Component, computed, input, output } from '@angular/core';
 import { UserModel } from './user.model';
+import { Card } from "../shared/card/card";
 
 // import { DUMMY_USERS } from '../dummy-users';
 // const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
@@ -8,7 +9,7 @@ import { UserModel } from './user.model';
 
 @Component({
   selector: 'app-user',
-  imports: [],
+  imports: [Card],
   templateUrl: './user.html',
   styleUrl: './user.css'
 })
