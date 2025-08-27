@@ -1,0 +1,5 @@
+<app-header />
+
+<app-investment (result)="onResultReceive($event)" />
+
+<app-investment-result [results]="investmentResults()" />
