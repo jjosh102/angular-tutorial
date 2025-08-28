@@ -1,6 +1,6 @@
 import { Component, inject, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { InvestmentData, InvestmentResultData } from './investment.model';
+import type { InvestmentData, InvestmentResultData } from './investment.model';
 import { InvestmentService } from './investment.service';
 
 @Component({
@@ -16,13 +16,17 @@ export class Investment {
     expectedReturn: 0,
     duration: 0
   });
-  result = output<InvestmentResultData[]>();
+
   investmentService = inject(InvestmentService);
 
   onSubmit() {
-    const resultData = this.investmentService.calculateInvestmentResults(this.input());
-    this.result.emit(resultData);
-    console.log('Emitted results:', resultData);
+    this.investmentService.calculateInvestmentResults(this.input());
+    this.input.set({
+      initialInvestment: 0,
+      annualInvestment: 0,
+      expectedReturn: 0,
+      duration: 0
+    });
   }
 
 }
