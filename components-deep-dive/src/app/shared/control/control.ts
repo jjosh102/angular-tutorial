@@ -1,11 +1,13 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-control',
   imports: [],
   templateUrl: './control.html',
   styleUrl: './control.css',
-  standalone: true
+  standalone: true,
+  encapsulation : ViewEncapsulation.None,
+  host: { 'class': 'control' }
 })
 export class Control {
 
