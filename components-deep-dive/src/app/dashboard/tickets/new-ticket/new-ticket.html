@@ -1,14 +1,19 @@
 <form>
-  <p>
-    <label for="title">Title</label>
+  <app-control label="Title">
     <input id="title" name="title" type="text" />
-  </p>
+  </app-control>
 
   <p>
     <label for="request">Request</label>
     <textarea id="request" name="request" rows="3">
     </textarea>
   </p>
+
+  <app-control label="Request">
+    <textarea id="request" name="request" rows="3">
+    </textarea>
+  </app-control>
+
 
   <p>
     <button appButton>
