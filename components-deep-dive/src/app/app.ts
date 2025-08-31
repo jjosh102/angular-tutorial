@@ -5,15 +5,20 @@ import { Traffic } from "./dashboard/traffic/traffic";
 import { DashboardItem } from "./dashboard/dashboard-item/dashboard-item";
 import { Tickets } from "./dashboard/tickets/tickets";
 import { Lifecycle } from "./lifecycle/lifecycle";
+import { CustomTwoWayBinding } from "./custom-two-way-binding/custom-two-way-binding";
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.html',
-  imports: [Header, ServerStatus, Traffic, DashboardItem, Tickets, Lifecycle],
+  imports: [Header, ServerStatus, Traffic, DashboardItem, Tickets, Lifecycle, CustomTwoWayBinding, FormsModule],
 })
 export class App {
-
+  rectSize = signal({
+    width: '100',
+    height: '100',
+  });
   lifecycleComponentIsVisible = signal(false);
   lifecycleInputText = signal('Some Random Number: ' + Math.random() * 100);
 
