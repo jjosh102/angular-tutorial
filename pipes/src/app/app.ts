@@ -1,12 +1,15 @@
 import { DatePipe, DecimalPipe } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { TemperaturePipe } from './temperature.pipe';
+import { SortPipe } from './sort.pipe';
 
 @Component({
   selector: 'app-root',
-  imports: [DatePipe, DecimalPipe],
+  imports: [DatePipe, DecimalPipe, TemperaturePipe, SortPipe],
   templateUrl: './app.html',
   styleUrl: './app.css'
+  //pure: false ->  disbale caching
 })
 export class App {
   currentDate = signal(new Date());
