@@ -5,11 +5,10 @@ import { finalize, map, takeUntil, timer } from 'rxjs';
 const OFFER_TIME = 30;
 
 @Component({
-  selector: 'app-offer-preview',
-  standalone: true,
-  imports: [AsyncPipe],
-  templateUrl: './offer-preview.component.html',
-  styleUrl: './offer-preview.component.css',
+    selector: 'app-offer-preview',
+    imports: [AsyncPipe],
+    templateUrl: './offer-preview.component.html',
+    styleUrl: './offer-preview.component.css'
 })
 export class OfferPreviewComponent {
   offerExpired = signal(false);
