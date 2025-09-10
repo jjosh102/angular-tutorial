@@ -18,6 +18,8 @@ export class UserTasksComponent implements OnInit {
   user = computed(() => this.usersService.users.find((user) => user.id === this.userId()));
 
   ngOnInit() {
+    // use for quickly getting values during initial load and not require reactivity
+    console.log(this.activatedRoute.snapshot.paramMap);
     console.log(this.activatedRoute);
     const subscription = this.activatedRoute.paramMap.subscribe({
       next: paramMap => console.log(paramMap.get('userId'))
