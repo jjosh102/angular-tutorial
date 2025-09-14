@@ -1,0 +1,20 @@
+.card {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+.card span {
+  flex-grow: 1;
+}
+
+
+.cdkDragHandle {
+  margin-right: 10px;
+  cursor: grab;
+}
